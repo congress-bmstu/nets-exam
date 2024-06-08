@@ -1,1 +1,11 @@
 \que{Теорема об интерполяционном полиноме Ньютона.}
+
+\begin{theorem}[об интерполяционном полиноме Ньютона]
+	\begin{align*}
+		f(\tau) &= f(\tau_0) + f(\tau_0, \tau_1) (\tau - \tau_0) + f(\tau_0, \tau_1, \tau_2) (\tau - \tau_0) (\tau - \tau_1) + \\ &+ \dotsc + f(\tau_0, \dotsc, \tau_k) (\tau - \tau_0) \cdot \dotsc \cdot (\tau - \tau_{k - 1}) + f(\tau_0, \tau_k) \cdot \Lambda(A, \tau) = \\ &= L_k(A, \tensor[^{>}]{\mathbf{y}}{})(\tau) + f(\tau_0, \tau_k).
+	\end{align*}
+	
+	$f(\tau, A) \cdot \Lambda(A, \tau) = \frac{f^{(k + 1)} (\xi(\tau))}{(k + 1)!} \cdot \Lambda(A, \tau) = R_k(\tau)$ --- значение $k$-го остаточного члена $A$-интерполяции Лагранжа для $\tensor[^{>}]{\mathbf{y}}{}$ в форме Коши, где $\xi(\tau) \in [a, b]$.
+\end{theorem}
+
+%TODO: чета последнее предложение не понял совсем. Это у Маши стырено.

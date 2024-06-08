@@ -1,1 +1,56 @@
 \que{Разности и основное свойство разделённых разностей. Разделённые разности для равномерной сетки.}
+
+\begin{definition}
+	Список точек $B = (t_0, t_1, \dotsc, t_m)$ отрезка $[a, b]$ называется ($m \in \mathrm{Z}_{+}$) псевдо-сеткой отрезка $[a, b]$ и квази-сеткой $[a, b]$, если $\abs{B} = m + 1$. 
+	
+	Если $\tau \in [a, b]$ и $B = (t_0, \dotsc, t_m)$ --- квази-сетка, то $(\tau, B) = (\tau, t_0, \dotsc, t_m)$ и $(B, \tau) = (t_0, \dotsc, t_m, \tau)$. 
+\end{definition}
+
+\begin{definition}
+	Пусть $f \in \underline{C}^{k+1}([a, b], \mathbb{R})$. Тогда для квази-сетки $A = (\tau_0, \dotsc, \tau_k)$. 
+	
+	\begin{enumerate}[label={\arabic*)}, ref={\arabic*}, start=0]
+		\item $f(\tau_0)$ --- $(\tau_0)$-разделённая разность для $f$ 1-го порядка;
+		
+		\item $f(\tau_0, \tau_1) = \frac{f(\tau_1) - f(\tau_0)}{\tau_1 - \tau_0}$ --- $(\tau_0, \tau_1)$-разделенная разность для $f$ 1-го порядка;
+	\end{enumerate}	
+	\begin{enumerate}[label={\alph*)}, start=10]
+		\item $f(\tau_0, \tau_1, \dotsc, \tau_j) = \frac{f(\tau_1, \dotsc, \tau_j) - f(\tau_0, \tau_1, \dotsc, \tau_{j - 1})}{\tau_j - \tau_0}$
+	\end{enumerate}
+	
+	Если $\tau \in [a, b]$, то:
+	\begin{equation*}
+		f(A, \tau) = \begin{cases}
+					 	\frac{f(\tau_1, \dotsc, \tau_k, \tau) - f(A)}{\tau - \tau_0}, \quad &\tau \not \in A, \\
+					 	\lim\limits_{\theta \to \tau}{\frac{f(\tau_1, \dotsc, \tau_k, \theta) - f(A)}{\theta - \tau_0}}, \quad &\tau \in A. 
+					 \end{cases}
+	\end{equation*}
+\end{definition}
+
+%\begin{remark}
+%	$\\$
+%	\begin{enumerate}[label={\arabic*)}]
+%		\item $\Delta y_0 = y_1 - y_0, \Delta y_1 = y_2 - y_1, \dotsc, \Delta y_{k - 1} = y_k - y_{k - 1}$ (разность 1-го порядка);
+%	\end{enumerate}
+%	\begin{enumerate}[label={\alph*)}, start=11]
+%		\item $\Delta^k y_0 = \sum \limits_{i = 0}^{k} (-1)^{i} C^i_k y_{k - i}$ (разность $k$-го порядка)
+%	\end{enumerate}
+%\end{remark}
+
+\begin{lemma}[о разделенных разностей с равномерной сеткой]
+	Для равномерной сетки $A$ на $[a, b]$ и $h = \mathrm{stp}(A)$:
+	\begin{equation*}
+		\frac{1}{k! \cdot h^{k}} \Delta^{k} y_0 = f(\tau_0, \tau_1, \dotsc, \tau_{k - 1}, \tau_k).
+	\end{equation*}
+\end{lemma}
+
+\begin{lemma}[о независимости от порядка записи аргументов]
+	
+	Разделённая разность $f(\tau_0, \dotsc, \tau_k)$ является симметричной функцией своих аргументов.
+	
+	\begin{equation*}
+		\boxed{f(\tau_0, \dotsc, \tau_k) = \sum \limits_{t = 0}^{k} \frac{f(\tau_i)}{(\tau_i - \tau_0) \cdot \dotsc \cdot (\tau_i - \tau_{i - 1}) \cdot (\tau_i - \tau_{i + 1}) \cdot \dotsc \cdot (\tau_i - \tau_k)}}.
+	\end{equation*}
+\end{lemma}
+
+%TODO: Хз что имеется в виду под <<основным свойством>>. Я так понял лемма2...
