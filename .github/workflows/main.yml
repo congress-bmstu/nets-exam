@@ -56,11 +56,11 @@ jobs:
           echo "::set-output name=time::$(TZ='Europe/Moscow' date +'%H:%M')"
           echo "::set-output name=date::$(TZ='Europe/Moscow' date +'%d.%m.%Y')"
       - name: Release with Notes
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           name: PDF ${{ steps.time.outputs.date }} ${{ steps.time.outputs.time }}
           body: ${{ steps.time.outputs.time }} - ${{github.event.head_commit.message}}
           append_body: true
-          tag_name: ${{ steps.date.outputs.date }} # в рамках одного дня коммиты будут сливаться в один релиз
+          tag_name: ${{ steps.time.outputs.date }} # в рамках одного дня коммиты будут сливаться в один релиз
           files: |
            nets.pdf
